@@ -1,8 +1,54 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    box-shadow: rgb(34, 34, 34) 0px 2px 3px inset;
+    background: url("../images/body_bg.png") rgb(51, 51, 51);
+    padding: 15px 0px;
+    border-bottom: 1px solid rgb(34, 34, 34);
 }
 
 a {
   color: #00B7FF;
+}
+.col-md-center {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+.todonameinput{
+	width:90% !important;
+	float:left;
+    border-radius: 30px 0px 0px 30px;
+    background: #272626;
+    border: #333;
+    color: #F5F5F5;
+}
+.todoaddbutton{
+	width:10% !important;
+	border-radius: 0px 30px 30px 0px;
+	float:left;
+}
+.todoaddbutton, .todonameinput{
+    display: table-cell;
+}
+.nav-tabs>li{
+	width:50% !important;
+	text-align:center;
+}
+.radio label, .checkbox label{
+	color:#F5F5F5;
+}
+button.btn.btn-danger.btn-sm {
+    margin-left: 15px;
+}
+.checkbox.ng-scope {
+    float: left;
+    width: 100% !important;
+    margin-bottom: 15px;
+    border-bottom: 2px solid grey;
+    padding-bottom: 3px;
+}
+
+input[type="checkbox"] {
+    margin-top: 8px;
 }

@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -13,7 +14,6 @@ var app = express();
 
 
 mongoose.connect('mongodb://localhost/tododb');
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,7 +25,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.use('/', routes);
 app.use('/users', users);
@@ -64,19 +64,6 @@ app.use(function(err, req, res, next) {
 app.listen(3000);
 console.log("App listening on port 3000");
 
-mongoose.connection.on('connected', function () {  
-  console.log('Db is on ');
-}); 
-
-// If the connection throws an error
-mongoose.connection.on('error',function (err) {  
-  console.log('Db Error');
-}); 
-
-// When the connection is disconnected
-mongoose.connection.on('disconnected', function () {  
-  console.log('Db disconnected'); 
-});
 
 
 

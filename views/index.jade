@@ -1,5 +1,57 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+doctype html
+// ASSIGN OUR ANGULAR MODULE
+html(ng-app='todolistapp')
+  head
+    // META
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    // Optimize mobile viewport
+    title Çağdaş Dağ Node ToDoListApp
+    // SCROLLS
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css')
+    link(href='/stylesheets/style.css', rel='stylesheet')
+    // load bootstrap
+    style.
+      html 					{ overflow-y:scroll; }
+      body 					{ padding-top:50px; }
+      #todo-list 				{ margin-bottom:30px; }
+      #todo-form 	 			{ margin-bottom:50px; }
+    // SPELLS
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js')
+    script(src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css')
+    script
+      include core.js
+    // load angular
+  // SET THE CONTROLLER AND GET ALL TODOS WITH INITIALIZE FUNCTION
+  body(ng-controller='mainController')
+    .container
+      // TODO LIST
+      #todo-form.row
+        .col-sm-8.col-sm-offset-2.text-center
+          form
+            .form-group
+              // BIND THIS VALUE TO formData.text IN ANGULAR
+              input.form-control.input-lg.todonameinput.text-center(type='text', placeholder='Yapılacak Listesine Yazı Ekle', ng-model='formData.todoname')
+              button.btn.btn-success.todoaddbutton.btn-lg(type='submit', ng-click='createTodo()')
+                i.fa.fa-plus(aria-hidden='true')
+      .col-md-8.col-sm12.col-md-center
+        #todo-list.row
+          ul.nav.nav-tabs
+            li.active
+              a(data-toggle='tab', href='#yapilacaklar') Yapılacaklar
+            li
+              a(data-toggle='tab', href='#yapilanlar') Yapılanlar
+          .tab-content
+            #yapilacaklar.tab-pane.fade.in.active
+              .checkbox(ng-repeat='todo in todolist | filter:false')
+                label
+                  input(type='checkbox', ng-click='editToDo(todo._id)')
+                  | {{ todo.baslik }}
+                  button.btn.btn-danger.btn-sm(ng-click='deleteTodo(todo._id)') Sil
+            #yapilanlar.tab-pane.fade
+             .checkbox(ng-repeat='todo in todolist | filter:true')
+              label
+                  {{ todo.baslik }}
+                button.btn.btn-danger.btn-sm(ng-click='deleteTodo(todo._id)') Sil
