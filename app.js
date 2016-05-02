@@ -13,7 +13,7 @@ var users = require('./routes/users');
 var app = express();
 
 
-mongoose.connect('mongodb://cagdas:cagdas55@ds011902.mlab.com:11902/todolistapp');
+mongoose.connect('mongodb://cagdas:cagdas55@ds011872.mlab.com:11872/todolistapps');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

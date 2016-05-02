@@ -5,8 +5,11 @@ body {
     background: url("../images/body_bg.png") rgb(51, 51, 51);
     padding: 15px 0px;
     border-bottom: 1px solid rgb(34, 34, 34);
+    color:white;
 }
-
+p{
+    color:white;
+}
 a {
   color: #00B7FF;
 }
@@ -48,7 +51,21 @@ button.btn.btn-danger.btn-sm {
     border-bottom: 2px solid grey;
     padding-bottom: 3px;
 }
+.tasiniyor {
+    float: left;
+    margin-left: 90px;
+    padding: 4px 20px;
+    background: #5cb85c;
+    border-radius: 15px;
+}
+label.ng-binding {
+    float: left;
+}
 
 input[type="checkbox"] {
     margin-top: 8px;
+}
+input.edit {
+    margin-left: 10px !important;
+    margin-right:10px !important;
 }

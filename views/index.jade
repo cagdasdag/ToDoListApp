@@ -27,7 +27,6 @@ html(ng-app='todolistapp')
   // SET THE CONTROLLER AND GET ALL TODOS WITH INITIALIZE FUNCTION
   body(ng-controller='mainController')
     .container
-      // TODO LIST
       #todo-form.row
         .col-sm-8.col-sm-offset-2.text-center
           form
@@ -47,9 +46,10 @@ html(ng-app='todolistapp')
             #yapilacaklar.tab-pane.fade.in.active
               .checkbox(ng-repeat='todo in todolist | filter:false')
                 label
-                  input(type='checkbox', ng-click='editToDo(todo._id)')
+                  input.edit(type='checkbox', ng-click='showSearch = (showSearch) ? false : true; editToDo(todo._id)')
                   | {{ todo.baslik }}
                   button.btn.btn-danger.btn-sm(ng-click='deleteTodo(todo._id)') Sil
+                .tasiniyor(ng-show='showSearch') Yapılanlara Taşınıyor
             #yapilanlar.tab-pane.fade
              .checkbox(ng-repeat='todo in todolist | filter:true')
               label
